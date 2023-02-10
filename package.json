@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "module for managing flashcards, with focus on language learning",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "node test/test.js",
     "start": "node src/index.js"
