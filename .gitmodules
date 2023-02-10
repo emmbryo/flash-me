@@ -1,0 +1,3 @@
+[submodule "woorden-api"]
+	path = woorden-api
+	url = https://github.com/emmbryo/woorden-api.git

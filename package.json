@@ -1,0 +1,25 @@
+{
+  "name": "flashcard-manager",
+  "version": "1.0.0",
+  "description": "module for managing flashcards, with focus on language learning",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test/test.js",
+    "start": "node src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/emmbryo/flashcard-manager.git"
+  },
+  "keywords": [
+    "flashcards",
+    "language",
+    "learning"
+  ],
+  "author": "emmbryo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/emmbryo/flashcard-manager/issues"
+  },
+  "homepage": "https://github.com/emmbryo/flashcard-manager#readme"
+}

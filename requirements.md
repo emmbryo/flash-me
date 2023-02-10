@@ -1,0 +1,1 @@
+# flashcard-manager module requirements
