@@ -1,2 +1,2 @@
-# flashcard-manager 1.0.0 requirements
+# flash-me 1.0.0 requirements
 

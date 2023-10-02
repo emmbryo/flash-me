@@ -12,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/emmbryo/flashcard-manager.git"
+    "url": "git+https://github.com/emmbryo/flash-me.git"
   },
   "keywords": [
     "flashcards",
@@ -22,9 +22,9 @@
   "author": "emmbryo",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/emmbryo/flashcard-manager/issues"
+    "url": "https://github.com/emmbryo/flash-me/issues"
   },
-  "homepage": "https://github.com/emmbryo/flashcard-manager#readme",
+  "homepage": "https://github.com/emmbryo/flash-me#readme",
   "dependencies": {
     "ejs": "^3.1.6",
     "express": "^4.17.2",
