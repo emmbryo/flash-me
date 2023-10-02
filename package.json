@@ -1,5 +1,5 @@
 {
-  "name": "flashcard-manager",
+  "name": "flash-me",
   "version": "1.0.0",
   "description": "module for managing flashcards, with focus on language learning",
   "main": "index.js",
