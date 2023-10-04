@@ -1,6 +1,6 @@
-import { Word } from '../woorden-api/src/js/word.js'
+import Word from '../woorden-api/src/js/index.js'
 
-const word = new Word('paard')
+const word = new Word('belangrijk')
 
 async function getInfo () {
   const info = await word.getWordInfo()
