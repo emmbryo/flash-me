@@ -10,6 +10,7 @@ reflektion.
 
 
 ## kap 2 - Meaningful names
+namngivning, namngivning, namngivning...
 ## kap 3 - Functions
 ## kap 4 - Comments
 ## kap 5 - Formatting

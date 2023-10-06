@@ -39,5 +39,15 @@ The user is met by a simple interface containing:
 
 ### 4. The flashcard
 #### 4.1 - Design
+* The card consists of two sides
+  * One with the word  
+  * The other with clues to which word it is
 #### 4.2 - Edit
+* A button: Edit
+* When clicked:
+  * All information on the card can be changed, they appear as text in text boxes
+  * a button: Save
+  * a button: Back
 #### 4.3 - Delete
+* A button: Delete
+* When pressed, the card is deleted

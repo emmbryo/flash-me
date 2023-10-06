@@ -1,5 +1,5 @@
 /**
- * Home controller.
+ * Flashcard controller.
  *
  * @author Emma Fransson <ef222hr@student.lnu.se>
  * @version 1.0.0
@@ -8,7 +8,7 @@
 /**
  * Encapsulates a controller.
  */
-export class HomeController {
+export class FlashcardController {
   /**
    * Renders a view and sends the rendered HTML string as an HTTP response.
    * index GET.
