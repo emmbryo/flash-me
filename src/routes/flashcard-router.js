@@ -12,3 +12,7 @@ const resolveFlashcardController = (req) => {
 }
 
 router.get('/', (req, res, next) => resolveFlashcardController(req).index(req, res, next))
+
+router.get('/flashcards', (req, res, next) => resolveFlashcardController(req).getCards(req, res, next))
+
+router.get('/flashcards/create', (req, res, next) => resolveFlashcardController(req).createCard(req, res, next))
