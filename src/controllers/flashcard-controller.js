@@ -5,43 +5,56 @@
  * @version 1.0.0
  */
 
-/**
- * Encapsulates a controller.
- */
+import { FlashcardService } from '../services/flashcard-service.js'
+
 export class FlashcardController {
+  /** 
+   * @type {FlashcardService} 
+   */
+  #service
+  constructor (service = new FlashcardService()) {
+    this.#service = service
+  }
+  
   /**
-   * Renders a view and sends the rendered HTML string as an HTTP response.
-   * index GET.
-   *
+   * The methods index, getCards and createCard share the same parameters:
    * @param {object} req - Express request object.
    * @param {object} res - Express response object.
    * @param {Function} next - Express next middleware function.
    */
+   
   index (req, res, next) {
-    res.render('home/index')
+    try {
+      res.render('home/index')
+    } catch (error) {
+      next(error)
+    }
   }
 
-  /**
-   * Renders a view and sends the rendered HTML string as an HTTP response.
-   * index GET.
-   *
-   * @param {object} req - Express request object.
-   * @param {object} res - Express response object.
-   * @param {Function} next - Express next middleware function.
-   */
   getCards (req, res, next) {
-    res.render('flashcard/deck')
+    try {
+      const flashcards = this.#service.getCards()
+      console.log(flashcards)
+      res.render('flashcards/deck', { viewData: flashcards })
+    } catch (error) {
+      next(error)
+    }
   }
 
-  /**
-   * Renders a view and sends the rendered HTML string as an HTTP response.
-   * index GET.
-   *
-   * @param {object} req - Express request object.
-   * @param {object} res - Express response object.
-   * @param {Function} next - Express next middleware function.
-   */
   createCard (req, res, next) {
-    res.render('flashcard/create')
+    try {
+      res.render('flashcards/create', {viewData: {word: 'hejsan'}})
+    } catch (error) {
+      next(error)
+    }
+  }
+
+  async searchWord (req, res, next) {
+    try {
+      const wordInfo = await this.#service.searchWord(req.body.search)
+      res.render('flashcards/create', { viewData: wordInfo })
+    } catch (error) {
+      next(error)
+    }
   }
 }

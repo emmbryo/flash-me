@@ -8,6 +8,10 @@ body {
   padding: 50px;
 }
 
+.hidden {
+  display: none;
+}
+
 .welcome-menu {
   display: flex;
   flex-direction: row;
@@ -15,8 +19,7 @@ body {
 }
 
 footer {
-  position: absolute;
-  bottom: 5px;
+  margin-top: 30px;
 }
 
 h1, button {
@@ -38,4 +41,11 @@ button {
 
 button:hover {
   background-color: rgb(168, 213, 205);
+}
+
+.flashcard {
+  border: solid 2px black;
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 20px;
 }

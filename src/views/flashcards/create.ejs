@@ -1,0 +1,25 @@
+<div>
+  <h1>
+    Create a flashcard, if you dare!
+  </h1>
+  <div class="search-word">
+    <form class="search-form" action="./flashcards/search" method="post">
+      <div class="input-search">
+        <label for="search">Enter a dutch word:</label>
+        <input type="text" id="search-input" name="search">
+        <button type="submit">Search</button>
+      </div>
+    </form>
+  </div>
+  <% if (viewData) { %>
+    <p>Test of pronunciation info:</p>
+    <p><%= viewData.Uitspraak %></p>
+  <% } %>
+  <div>
+    <form class="create-flashcard" method="post" action="./flashcards/create">
+      <div class="input-create">
+      </div>
+    </form>
+    
+  </div>
+</div>

@@ -1,0 +1,29 @@
+<div id="flashcards">
+  <h1 id="headline">
+    Get ready to flash:
+  </h1>
+  <% if (viewData?.length) { %>
+    <% viewData.forEach( flashcard => { %>
+      <div class="flashcard">
+        <div class="back hidden">
+          <p><%= flashcard.back?.word %></p>
+          <p><%= flashcard.back?.pronunciation %></p>
+          <p><%= flashcard.back?.sentence %></p>
+        </div>
+        <div class="front">
+          <p> <%= flashcard.front?.translation %></p>
+          <p> <%= flashcard.front?.sentence %></p>
+        </div>
+        <div>
+          <button class="flip-flashcards" id="<%= flashcard.back?.word %>">Flash!</button>
+        </div>
+      </div>
+    <% }) %>
+  <% } else { %>
+    <div>
+      <p>No cards in the deck!</p>
+    </div>
+    <% } %>
+</div>
+
+<script src="./js/cards.js"></script>

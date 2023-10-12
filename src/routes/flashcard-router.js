@@ -16,3 +16,7 @@ router.get('/', (req, res, next) => resolveFlashcardController(req).index(req, r
 router.get('/flashcards', (req, res, next) => resolveFlashcardController(req).getCards(req, res, next))
 
 router.get('/flashcards/create', (req, res, next) => resolveFlashcardController(req).createCard(req, res, next))
+
+router.post('/flashcards/search', (req, res, next) => resolveFlashcardController(req).searchWord(req, res, next))
+
+router.post('/flashcards/create', (req, res, next) => resolveFlashcardController(req).createCard(req, res, next))

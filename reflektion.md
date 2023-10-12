@@ -20,3 +20,12 @@ namngivning, namngivning, namngivning...
 ## kap 9 - Unit tests
 ## kap 10 - Classes
 ## kap 11 - Systems
+
+
+## Notes during development
+- body för söka ord: search --> word bättre för förståelsen när man följer inblandade metoder?
+- i service: searchWOrd: wordToSearch för att separera från const word = new Word(word-ish)
+- Sammanfattande parametrer kommentarer för req, res, next --> onödigt att upprepa för varje enskild metod när de ändå använder samma params.
+- Problem: insprängd ejs i vyerna, mycket svårläst, men det är den syntaxen som gäller för ejs, lite klurigt att göra det läsbart. Öpppna upp mer med radbrytningar?
+- Problem: Koden rör sig över mpnga filer för varje anrop, vill  man följa händelserna i koden är det ett evigt bläddrande --> namngivning av metoder kan göra att man kan undvika att gå in i en klass för att kolla vad som händer, räcker då att kolla i kontrollern, där allt ges på en övergripande nivå?
+- Lägga till repository för att illustrera DB, även om den i detta fall bara kör .json filen?
