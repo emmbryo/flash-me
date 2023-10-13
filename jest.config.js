@@ -13,5 +13,15 @@ export default {
   setupFilesAfterEnv: [
     'jest-extended/all',
     'jest-chain'
-  ]
+  ],
+
+  // Specify which files to show coverage for
+  collectCoverageFrom: [
+      "src/services/*.{js,jsx,ts,tsx}",
+      "src/controllers/*.{js,jsx,ts,tsx}",
+      "!woorden-api/**"
+  ],
+
+  // Excluding submodule woorden-api tests 
+  testPathIgnorePatterns: ["woorden-api"]
 }

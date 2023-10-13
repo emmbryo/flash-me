@@ -6,11 +6,10 @@ import Word from '../../woorden-api/src/js/index.js'
 
 export class FlashcardService {
   getCards () {
-    return this.readData()
+    return this.#readData()
   }
 
-
-  readData () {
+  #readData () {
     const directoryFullName = dirname(fileURLToPath(import.meta.url))
     const filePath = join(directoryFullName, '..', 'data/flashcards.json')
     const data = fs.readFileSync(filePath, 'utf8')

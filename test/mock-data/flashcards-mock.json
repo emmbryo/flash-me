@@ -1,0 +1,35 @@
+[
+  {
+    "back": { 
+      "word": "belangrijk",
+      "pronunciation": "[bəˈlɑŋrɛik]",
+      "sentence": "een belangrijke dag, een belangrijke persoon" 
+    },
+    "front": {
+      "translation": "important",
+      "sentence": "een _________ dag, een _________ persoon"
+    }
+  },
+  {
+    "back": { 
+      "word": "geluk", 
+      "pronunciation": "[xəˈlʏk]",
+      "sentence": "Het verliefde stelletje straalde van geluk." 
+    },
+    "front": {
+      "translation": "lucky",
+      "sentence": "Het verliefde stelletje straalde van _____."
+    }
+  },
+  {
+    "back": { 
+      "word": "moeilijk",
+      "pronunciation": "[ˈmujlək]",
+      "sentence": "Ik vond het moeilijk om toe te geven dat ze gelijk had."
+    },
+    "front": {
+      "translation": "difficult",
+      "sentence": "Ik vond het ________ om toe te geven dat ze gelijk had."
+    }
+  }
+]
