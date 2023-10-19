@@ -3,22 +3,24 @@
     Get ready to flash:
   </h1>
   <% if (viewData?.length) { %>
+    <div class="flashcard-container">
     <% viewData.forEach( flashcard => { %>
-      <div class="flashcard">
-        <div class="front">
-          <p> <%= flashcard.front?.translation %></p>
-          <p> <%= flashcard.front?.sentence %></p>
+        <div class="flashcard">
+          <div class="front">
+            <h3><b> <%= flashcard.front?.translation %> </b></h3>
+            <p> <%= flashcard.front?.sentence %></p>
+          </div>
+          <div class="back hidden">
+            <h3><b> <%= flashcard.back?.word %> </b></h3>
+            <p><%= flashcard.back?.pronunciation %></p>
+            <p><%= flashcard.back?.sentence %></p>
+          </div>
+          <div>
+            <button class="flip-flashcards" id="<%= flashcard.back?.word %>">Flash!</button>
+          </div>
         </div>
-        <div class="back hidden">
-          <p><%= flashcard.back?.word %></p>
-          <p><%= flashcard.back?.pronunciation %></p>
-          <p><%= flashcard.back?.sentence %></p>
-        </div>
-        <div>
-          <button class="flip-flashcards" id="<%= flashcard.back?.word %>">Flash!</button>
-        </div>
-      </div>
     <% }) %>
+    </div>
   <% } else { %>
     <div>
       <p>No cards in the deck!</p>

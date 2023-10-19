@@ -3,11 +3,11 @@
     "back": { 
       "word": "belangrijk",
       "pronunciation": "[bəˈlɑŋrɛik]",
-      "sentence": "een belangrijke dag, een belangrijke persoon" 
+      "sentence": "Een belangrijke dag, een belangrijke persoon" 
     },
     "front": {
       "translation": "important",
-      "sentence": "een _________ dag, een _________ persoon"
+      "sentence": "Een _________ dag, een _________ persoon"
     }
   },
   {
@@ -30,6 +30,28 @@
     "front": {
       "translation": "difficult",
       "sentence": "Ik vond het ________ om toe te geven dat ze gelijk had."
+    }
+  },
+  {
+    "back": { 
+      "word": "pittig",
+      "pronunciation": "[ˈpɪtəx]",
+      "sentence": "pittige examenopgaven, Hij wordt niet meteen ontslagen, maar er volgt wel een pittig gesprek met de directeur."
+    },
+    "front": {
+      "translation": "spicy/punchy",
+      "sentence": "_______ examenopgaven. Hij wordt niet meteen ontslagen, maar er volgt wel een _______ gesprek met de directeur. Een _______ ding (een meisje met karakter)"
+    }
+  },
+  {
+    "back": { 
+      "word": "ingewikkeld",
+      "pronunciation": "[ɪnxəˈwɪkəlt]",
+      "sentence": "Een ingewikkeld probleem oplossen, Die regeling is te ingewikkeld voor mij."
+    },
+    "front": {
+      "translation": "complicated",
+      "sentence": "Een ___________ probleem oplossen, Die regeling is te ___________ voor mij."
     }
   }
 ]

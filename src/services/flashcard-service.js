@@ -1,4 +1,3 @@
-// import flashcards from '../data/flashcards.js'
 import fs from 'fs'
 import { dirname, join } from 'path'
 import { fileURLToPath } from 'url'
@@ -23,6 +22,22 @@ export class FlashcardService {
   async searchWord (wordToSearch) {
     const word = new Word(wordToSearch)
     const wordInfo = await word.getWordInfo()
-    return wordInfo
+    return {
+      translation: 'Fill the in word in your source language.',
+      gapSentence: `${wordInfo.Voorbeelden} ${wordInfo.Voorbeeld}`,
+      word: wordToSearch,
+      pronunciation: wordInfo.Uitspraak,
+      sentence: `${wordInfo.Voorbeelden} ${wordInfo.Voorbeeld}`,
+    }
+  }
+
+  getDefaultData () {
+    return {
+      translation: 'The word translated',
+      gapSentence: 'Sentence with the ____ left out',
+      word: 'the word to learn',
+      pronunciation: 'word written in IPA',
+      sentence: 'The full sentence'
+    }
   }
 }

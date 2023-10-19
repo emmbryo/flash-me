@@ -43,9 +43,22 @@ button:hover {
   background-color: rgb(168, 213, 205);
 }
 
+.flashcard-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
 .flashcard {
+  width: auto;
+  height: auto;
   border: solid 2px black;
   border-radius: 10px;
   padding: 10px;
-  margin-bottom: 20px;
+}
+
+.input-create {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }

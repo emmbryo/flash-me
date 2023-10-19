@@ -43,7 +43,8 @@ export class FlashcardController {
 
   createCard (req, res, next) {
     try {
-      res.render('flashcards/create', {viewData: {word: 'hejsan'}})
+      const defaultData = this.#service.getDefaultData()
+      res.render('flashcards/create', {viewData: defaultData})
     } catch (error) {
       next(error)
     }

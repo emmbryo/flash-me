@@ -12,14 +12,22 @@
     </form>
   </div>
   <% if (viewData) { %>
-    <p>Test of pronunciation info:</p>
-    <p><%= viewData.Uitspraak %></p>
-  <% } %>
   <div>
     <form class="create-flashcard" method="post" action="./flashcards/create">
       <div class="input-create">
+        <label for="word">Word:</label>
+        <input type="text" name="word" class="word" value="<%= viewData.word %>">
+        <label for="translation">Translation:</label>
+        <input type="text" name="translation" class="translation" placeholder="<%= viewData.translation %>">
+        <label for="gap-sentence">Sentence:</label>
+        <textarea name="gap-sentence" class="gap-sentence"><%= viewData.gapSentence %></textarea>
+        <label for="pronunciation">Pronunciation:</label>
+        <input type="text" name="pronunciation" class="pronunciation" value="<%= viewData.pronunciation %>">
+        <label for="sentence">Full sentence:</label>
+        <textarea type="text" name="sentence" iclass="sentence"><%= viewData.sentence %></textarea>
+        <button type="submit">Save</button>
       </div>
     </form>
-    
   </div>
+  <% } %>
 </div>
