@@ -1,4 +1,4 @@
-document.querySelector('#flashcards').addEventListener('click', (event) => {
+document.querySelector('.flashcards').addEventListener('click', (event) => {
   if (event.target.className === 'flip-flashcards') {
     flipCard(event)
   } 

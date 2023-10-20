@@ -23,6 +23,12 @@ describe('getCards method.', () => {
     controller.getCards(req, res, next)
     expect(res.path).toBe('flashcards/deck')
   })
+  test('getCards method should send data (an object) to the view.', () => {
+    res.render('', {})
+    controller.getCards(req, res, next)
+    const keys = Object.keys(res.data)
+    expect(keys.length).toBeGreaterThan(0)
+  })
 })
 
 describe('createCard method.', () => {
@@ -38,5 +44,25 @@ describe('searchWord method.', () => {
     res.render('', {})
     await controller.searchWord(req, res, next)
     expect(res.path).toBe('flashcards/create')
+  })
+  test('searchWord method should send data (object) to the view.', async () => {
+    res.render('', {})
+    await controller.searchWord(req, res, next)
+    const keys = Object.keys(res.data)
+    expect(keys.length).toBeGreaterThan(0)
+  })
+})
+
+describe('saveCard method.', () => {
+  test('saveCard method should call res.render with path: flashcards/card', async () => {
+    res.render('', {})
+    await controller.saveCard(req, res, next)
+    expect(res.path).toBe('flashcards/card')
+  })
+  test('saveCard method should send data (object) to the view', async () => {
+    res.render('', {})
+    await controller.saveCard(req, res, next)
+    const keys = Object.keys(res.data)
+    expect(keys.length).toBeGreaterThan(0)
   })
 })

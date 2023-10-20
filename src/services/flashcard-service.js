@@ -40,4 +40,19 @@ export class FlashcardService {
       sentence: 'The full sentence'
     }
   }
+
+  saveCard (cardData) {
+    const card = {
+      back: { 
+        word: cardData.word,
+        pronunciation: cardData.pronunciation,
+        sentence: cardData.sentence 
+      },
+      front: {
+        translation: cardData.translation,
+        gapSentence: cardData['gap-sentence']
+      }
+    }
+    return card
+  }
 }

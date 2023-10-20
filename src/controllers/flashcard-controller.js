@@ -34,7 +34,6 @@ export class FlashcardController {
   getCards (req, res, next) {
     try {
       const flashcards = this.#service.getCards()
-      console.log(flashcards)
       res.render('flashcards/deck', { viewData: flashcards })
     } catch (error) {
       next(error)
@@ -54,6 +53,15 @@ export class FlashcardController {
     try {
       const wordInfo = await this.#service.searchWord(req.body.search)
       res.render('flashcards/create', { viewData: wordInfo })
+    } catch (error) {
+      next(error)
+    }
+  }
+
+  saveCard (req, res, next) {
+    try {
+      const card = this.#service.saveCard(req.body)
+      res.render('flashcards/card', { viewData: card })
     } catch (error) {
       next(error)
     }

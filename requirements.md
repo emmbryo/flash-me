@@ -1,6 +1,12 @@
-# flash-me 1.0.0 requirements
+# flash-me 1.0.0 vision and requirements
 
 The flash-me application is a "flash card app" intended to help with learning languages, in particular dutch. 
+
+## Vision
+The goal is to create an appplication for learning langugaes with the use of flashcards, especially dutch with the usage of the module woorden-api.
+It shall be possible for the user to create flashcards, either by filling in all the information by themselves, or by searching for a dutch word in the application. The information on that word is then gathered from the woorden.org online dutch dictionary, via the woorden-api package, and then filled in for the card to create. The user can then choose to edit or change the information before saving the card.
+
+The saved cards can then be used to train the vocabulary. 
 
 ## Functional requirements
 

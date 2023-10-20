@@ -19,4 +19,4 @@ router.get('/flashcards/create', (req, res, next) => resolveFlashcardController(
 
 router.post('/flashcards/search', (req, res, next) => resolveFlashcardController(req).searchWord(req, res, next))
 
-router.post('/flashcards/create', (req, res, next) => resolveFlashcardController(req).createCard(req, res, next))
+router.post('/flashcards/create', (req, res, next) => resolveFlashcardController(req).saveCard(req, res, next))
