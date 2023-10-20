@@ -23,6 +23,7 @@ namngivning, namngivning, namngivning...
 
 
 ## Notes during development
+- bindestreck i html, översätts till keys in javascript --> ['key-name']
 - Problem: insprängd ejs i vyerna, mycket svårläst, men det är den syntaxen som gäller för ejs, lite klurigt att göra det läsbart. Öpppna upp mer med radbrytningar?
 - Problem: Koden rör sig över mpnga filer för varje anrop, vill  man följa händelserna i koden är det ett evigt bläddrande --> namngivning av metoder kan göra att man kan undvika att gå in i en klass för att kolla vad som händer, räcker då att kolla i kontrollern, där allt ges på en övergripande nivå?
 - Lägga till repository för att illustrera DB, även om den i detta fall bara kör .json filen?

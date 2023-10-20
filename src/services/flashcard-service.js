@@ -24,10 +24,10 @@ export class FlashcardService {
     const wordInfo = await word.getWordInfo()
     return {
       translation: 'Fill the in word in your source language.',
-      gapSentence: `${wordInfo.Voorbeelden} ${wordInfo.Voorbeeld}`,
+      gapSentence: this.#createGapSentence(wordToSearch, wordInfo),
       word: wordToSearch,
       pronunciation: wordInfo.Uitspraak,
-      sentence: `${wordInfo.Voorbeelden} ${wordInfo.Voorbeeld}`,
+      sentence: this.#createSentence(wordInfo),
     }
   }
 
@@ -54,5 +54,22 @@ export class FlashcardService {
       }
     }
     return card
+  }
+
+  #createSentence (wordInfo) {
+    const sentances = []
+    sentances.push(wordInfo.Voorbeelden ? wordInfo.Voorbeelden : '')
+    sentances.push(wordInfo.Voorbeeld ? wordInfo.Voorbeelden : '')
+    
+    return sentances.toString()
+  }
+
+  #createGapSentence(word, wordInfo) {
+    const gap = '_'.repeat(word.length)
+    const gapSentances = []
+    gapSentances.push(wordInfo.Voorbeelden?.replaceAll(word, gap))
+    gapSentances.push(wordInfo.Voorbeeld?.replaceAll(word, gap) ? wordInfo.Voorbeeld?.replaceAll(word, gap) : '')
+
+    return gapSentances.toString() 
   }
 }
