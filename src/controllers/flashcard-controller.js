@@ -17,7 +17,7 @@ export class FlashcardController {
   }
   
   /**
-   * The methods index, getCards and createCard share the same parameters:
+   * All methods of this class share the same parameters:
    * @param {object} req - Express request object.
    * @param {object} res - Express response object.
    * @param {Function} next - Express next middleware function.
