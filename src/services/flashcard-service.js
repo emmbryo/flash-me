@@ -15,8 +15,17 @@ export class FlashcardService {
     return JSON.parse(data)
   }
 
-  writeData () {
+  #writeData (cardData) {
+    const cards = this.#readData()
+    cards.push(cardData)
+    const jsonData = JSON.stringify(cards, null, 2)
 
+    const directoryFullName = dirname(fileURLToPath(import.meta.url))
+    const filePath = join(directoryFullName, '..', 'data/flashcards.json')
+
+    fs.writeFileSync(filePath, jsonData, 'utf-8')
+
+    return cardData
   }
 
   async searchWord (wordToSearch) {
@@ -53,7 +62,8 @@ export class FlashcardService {
         gapSentence: cardData['gap-sentence']
       }
     }
-    return card
+    
+    return this.#writeData(card)
   }
 
   #createSentence (wordInfo) {

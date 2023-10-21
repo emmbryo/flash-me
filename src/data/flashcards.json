@@ -1,57 +1,68 @@
 [
   {
-    "back": { 
+    "back": {
       "word": "belangrijk",
       "pronunciation": "[bəˈlɑŋrɛik]",
-      "sentence": "Een belangrijke dag, een belangrijke persoon" 
+      "sentence": "Een belangrijke dag, een belangrijke persoon"
     },
     "front": {
       "translation": "important",
-      "sentence": "Een _________ dag, een _________ persoon"
+      "gapSentence": "Een _________ dag, een _________ persoon"
     }
   },
   {
-    "back": { 
-      "word": "geluk", 
+    "back": {
+      "word": "geluk",
       "pronunciation": "[xəˈlʏk]",
-      "sentence": "Het verliefde stelletje straalde van geluk." 
+      "sentence": "Het verliefde stelletje straalde van geluk."
     },
     "front": {
       "translation": "lucky",
-      "sentence": "Het verliefde stelletje straalde van _____."
+      "gapSentence": "Het verliefde stelletje straalde van _____."
     }
   },
   {
-    "back": { 
+    "back": {
       "word": "moeilijk",
       "pronunciation": "[ˈmujlək]",
       "sentence": "Ik vond het moeilijk om toe te geven dat ze gelijk had."
     },
     "front": {
       "translation": "difficult",
-      "sentence": "Ik vond het ________ om toe te geven dat ze gelijk had."
+      "gapSentence": "Ik vond het ________ om toe te geven dat ze gelijk had."
     }
   },
   {
-    "back": { 
+    "back": {
       "word": "pittig",
       "pronunciation": "[ˈpɪtəx]",
       "sentence": "pittige examenopgaven, Hij wordt niet meteen ontslagen, maar er volgt wel een pittig gesprek met de directeur."
     },
     "front": {
       "translation": "spicy/punchy",
-      "sentence": "_______ examenopgaven. Hij wordt niet meteen ontslagen, maar er volgt wel een _______ gesprek met de directeur. Een _______ ding (een meisje met karakter)"
+      "gapSentence": "_______ examenopgaven. Hij wordt niet meteen ontslagen, maar er volgt wel een _______ gesprek met de directeur. Een _______ ding (een meisje met karakter)"
     }
   },
   {
-    "back": { 
+    "back": {
       "word": "ingewikkeld",
       "pronunciation": "[ɪnxəˈwɪkəlt]",
       "sentence": "Een ingewikkeld probleem oplossen, Die regeling is te ingewikkeld voor mij."
     },
     "front": {
       "translation": "complicated",
-      "sentence": "Een ___________ probleem oplossen, Die regeling is te ___________ voor mij."
+      "gapSentence": "Een ___________ probleem oplossen, Die regeling is te ___________ voor mij."
+    }
+  },
+  {
+    "back": {
+      "word": "paard",
+      "pronunciation": "[part]",
+      "sentence": "renpaard,paardrijden over het paard getild zijn   (verwend en arrogant zijn) zo sterk als een paard   (heel sterk),"
+    },
+    "front": {
+      "translation": "horse",
+      "gapSentence": "ren_____,_____rijden over het _____ getild zijn   (verwend en arrogant zijn) zo sterk als een _____   (heel sterk),"
     }
   }
 ]
