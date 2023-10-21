@@ -1,7 +1,8 @@
-import { FlashcardService } from "../src/services/flashcard-service"
+import { FlashcardService } from "../../src/services/flashcard-service"
 import { req } from './mock-objects/requestCycleObjects.js'
 
 const service = new FlashcardService()
+const testWord = 'belangrijk'
 
 describe('Flashcard service constructor', () => {
   describe('Create flashcard service object', () => {
@@ -19,9 +20,17 @@ describe('Flashcard service getCards method', () => {
 })
 
 describe('Flashcard service searchWord method', () => {
-  test('searchWord() should return an object.', () => {
-    const response = service.searchWord('belangrijk')
+  test('searchWord() should return an object.', async () => {
+    const response = await service.searchWord(testWord)
     expect(typeof response).toBe('object')
+  })
+  test('searchWord() should return an object with keys: [translation, gapSentence, word, pronunciation, sentence]', async () => {
+    const response = await service.searchWord(testWord)
+    const keys = Object.keys(response)
+    const expectedValues = ['translation', 'gapSentence', 'word', 'pronunciation', 'sentence']
+    for (let i = 0; i < keys.length; i++) {
+      expect(keys[i]).toBe(expectedValues[i])
+    }
   })
 })
 

@@ -1,4 +1,4 @@
-import { FlashcardService } from '../../src/services/flashcard-service'
+import { FlashcardService } from '../../../src/services/flashcard-service'
 
 export class FlashcardServiceMock extends FlashcardService {
 

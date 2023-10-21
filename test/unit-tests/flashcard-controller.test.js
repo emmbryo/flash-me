@@ -1,4 +1,4 @@
-import { FlashcardController } from '../src/controllers/flashcard-controller.js'
+import { FlashcardController } from '../../src/controllers/flashcard-controller.js'
 import { FlashcardServiceMock } from './mock-classes/FlashcardServiceMock.js'
 import { req, res, next } from './mock-objects/requestCycleObjects.js'
 

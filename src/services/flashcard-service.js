@@ -59,12 +59,12 @@ export class FlashcardService {
   #createSentence (wordInfo) {
     const sentances = []
     sentances.push(wordInfo.Voorbeelden ? wordInfo.Voorbeelden : '')
-    sentances.push(wordInfo.Voorbeeld ? wordInfo.Voorbeelden : '')
+    sentances.push(wordInfo.Voorbeeld ? wordInfo.Voorbeeld : '')
     
     return sentances.toString()
   }
 
-  #createGapSentence(word, wordInfo) {
+  #createGapSentence (word, wordInfo) {
     const gap = '_'.repeat(word.length)
     const gapSentances = []
     gapSentances.push(wordInfo.Voorbeelden?.replaceAll(word, gap))
