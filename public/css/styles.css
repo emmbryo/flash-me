@@ -94,3 +94,12 @@ button:hover {
 .create-flashcard, .warning-text {
   max-width: 600px;
 }
+
+.alert-danger {
+  border: solid 2px black;
+  padding: 5px;
+  margin-top: 10px;
+  font-size: 16px;
+  border-radius: 10px;
+  background-color: rgb(229, 122, 122);
+}

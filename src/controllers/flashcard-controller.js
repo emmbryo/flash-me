@@ -23,7 +23,7 @@ export class FlashcardController {
    * @param {Function} next - Express next middleware function.
    */
    
-  index (req, res, next) {
+  index (res, next) {
     try {
       res.render('home/index')
     } catch (error) {
@@ -31,7 +31,7 @@ export class FlashcardController {
     }
   }
 
-  getCards (req, res, next) {
+  getCards (res, next) {
     try {
       const flashcards = this.#service.getCards()
       res.render('flashcards/deck', { viewData: flashcards })
@@ -40,12 +40,12 @@ export class FlashcardController {
     }
   }
 
-  createCard (req, res, next) {
+  createCard (res, next) {
     try {
       const defaultData = this.#service.getDefaultData()
-      res.render('flashcards/create', {viewData: defaultData})
+      res.render('flashcards/create', { viewData: defaultData })
     } catch (error) {
-      next(error)
+      nect(error)
     }
   }
 
@@ -54,7 +54,8 @@ export class FlashcardController {
       const wordInfo = await this.#service.searchWord(req.body.search)
       res.render('flashcards/create', { viewData: wordInfo })
     } catch (error) {
-      next(error)
+      req.session.flash = { type: 'danger', text: error.message }
+      res.redirect('./create')
     }
   }
 

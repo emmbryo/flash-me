@@ -9,6 +9,7 @@ import { container } from './config/bootstrap.js'
 
 import express from 'express'
 import expressLayouts from 'express-ejs-layouts'
+import session from 'express-session'
 import logger from 'morgan'
 import { dirname, join } from 'path'
 import { fileURLToPath } from 'url'
@@ -46,13 +47,30 @@ app.use(express.urlencoded({ extended: false }))
 // Serve static files.
 app.use(express.static(join(directoryFullName, '..', 'public')))
 
-  // Middleware to be executed before the routes.
-  app.use((req, res, next) => {
-    // Pass the base URL to the views.
-    res.locals.baseURL = baseURL
+const sessionOptions = {
+  name: process.env.SESSION_NAME,
+  secret: process.env.SESSION_SECRET,
+  resave: false,
+  saveUninitialized: false,
+  cookie: {
+    maxAge: 1000 * 69 * 60 * 24, // 1 day
+    sameSite: 'strict'
+  }
+}
 
-    next()
-  })
+app.use(session(sessionOptions))
+
+// Middleware to be executed before the routes.
+app.use((req, res, next) => {
+  // Pass the base URL to the views.
+  if (req.session.flash) {
+    res.locals.flash = req.session.flash
+    delete req.session.flash
+  }
+  res.locals.baseURL = baseURL
+
+  next()
+})
 
 
 if (app.get('env') === 'production') {

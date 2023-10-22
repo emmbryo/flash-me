@@ -3,16 +3,30 @@
 <div id="flashcard-container">
     <div class="flashcards" id="flashcard-solo">
       <div class="front">
-        <h3><b> <%= viewData.front?.translation %> </b></h3>
+        <div class="card-top-row">
+          <h3><b> <%= viewData.front?.translation %> </b></h3>
+          <div class="edit-delete-buttons">
+            <form action="./flashcards/<%= viewData.id %>/delete" method="post" >
+              <button class="delete-card" id="<%= viewData.id %>" type="submit">Delete</button>
+            </form>
+          </div>
+        </div>
         <p> <%= viewData.front?.gapSentence %></p>
       </div>
       <div class="back hidden">
-        <h3><b> <%= viewData.back?.word %> </b></h3>
+        <div class="card-top-row">
+          <h3><b> <%= viewData.back?.word %> </b></h3>
+          <div class="edit-delete-buttons">
+            <form action="./flashcards/<%= viewData.id %>/delete" method="post" >
+              <button class="delete-card" id="<%= viewData.id %>" type="submit">Delete</button>
+            </form>
+          </div>
+        </div>
         <p><%= viewData.back?.pronunciation %></p>
         <p><%= viewData.back?.sentence %></p>
       </div>
       <div>
-        <button class="flip-flashcards" id="<%= viewData.back?.word %>">Flash!</button>
+        <button class="flip-flashcards" id="flash-<%= viewData.id %>">Flash!</button>
       </div>
 </div>
 </div>

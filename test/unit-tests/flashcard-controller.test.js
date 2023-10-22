@@ -12,7 +12,7 @@ describe('Flashcard controller constructor', () => {
 
 describe('index method.', () => {
   test('index method should call res.render with path: home/index', () => {
-    controller.index(req, res, next)
+    controller.index(res, next)
     expect(res.path).toBe('home/index')
   })
 })
@@ -20,12 +20,12 @@ describe('index method.', () => {
 describe('getCards method.', () => {
   test('getCards method should call res.render with path: flashcards/deck', () => {
     res.render('', {})
-    controller.getCards(req, res, next)
+    controller.getCards(res, next)
     expect(res.path).toBe('flashcards/deck')
   })
   test('getCards method should send data (an object) to the view.', () => {
     res.render('', {})
-    controller.getCards(req, res, next)
+    controller.getCards(res, next)
     const keys = Object.keys(res.data)
     expect(keys.length).toBeGreaterThan(0)
   })
@@ -34,7 +34,7 @@ describe('getCards method.', () => {
 describe('createCard method.', () => {
   test('createCard method should call res.render with path: flashcards/create', () => {
     res.render('', {})
-    controller.createCard(req, res, next)
+    controller.createCard(res, next)
     expect(res.path).toBe('flashcards/create')
   })
 })

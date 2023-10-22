@@ -11,11 +11,11 @@ const resolveFlashcardController = (req) => {
   return req.app.get('container').resolve('FlashcardController')
 }
 
-router.get('/', (req, res, next) => resolveFlashcardController(req).index(req, res, next))
+router.get('/', (req, res, next) => resolveFlashcardController(req).index(res, next))
 
-router.get('/flashcards', (req, res, next) => resolveFlashcardController(req).getCards(req, res, next))
+router.get('/flashcards', (req, res, next) => resolveFlashcardController(req).getCards(res, next))
 
-router.get('/flashcards/create', (req, res, next) => resolveFlashcardController(req).createCard(req, res, next))
+router.get('/flashcards/create', (req, res, next) => resolveFlashcardController(req).createCard(res, next))
 
 router.post('/flashcards/search', (req, res, next) => resolveFlashcardController(req).searchWord(req, res, next))
 

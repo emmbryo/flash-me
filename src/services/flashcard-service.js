@@ -104,7 +104,8 @@ export class FlashcardService {
 
   #writeData (cardData) {
     const cards = this.#readData()
-    cardData.id = `${cards.length + 1}`
+    const highestId = cards[cards.length - 1].id
+    cardData.id = Number.parseInt(highestId) + 1
     cards.push(cardData)
     const jsonData = JSON.stringify(cards, null, 2)
 

@@ -1,11 +1,17 @@
 ## TODO
 
 * spara kortet till .json-filen - OK!
-* edit/delete cards
-* felhantering om ordet inte finns
-* maxgräns på input
-* validering av input
-* lägga till id, på alla ställen...
+* edit/delete cards - OK!
+* maxgräns på input - OK!
+* lägga till id, på alla ställen... - OK!
+* felhantering om ordet inte finns - OK!
+
+* validering av input - halvOK
+* skapa repository
+* test av UI - manuella
+* testrapport
+* Skriva klart reflektion
+
 
 ## Notes during development
 - bindestreck i html, översätts till keys in javascript --> ['key-name']
@@ -14,6 +20,7 @@
 - Lägga till repository för att illustrera DB, även om den i detta fall bara kör .json filen?
 - html, Hur fasiken ska man kunna göra html läsbart på ett tydligt vis? Det blir snabbt rörigt med element, klasser och id:n all over the place. SPECIELLT om man även slänger in ejs i spelet med javscript insprängt under uppbyggnaden av en html-fil. Här finns det mycket att jobba på ... Men begränsingar också i hur man "måste" göra för att kunna bygga filen så som man vill ha den.
 - ? istället för if-satser, lite svårare att förstå, men minskar drastiskt på antalen rader kod, vilket kan göra det lättare att förstå, en avvägning hur mycket man ska använda denna.
+- en repository bör implementeras, dels för att snygga till service, cohesion låg för tillfället, och dels för att dela upp ansvaret mellanklasserna, service gör för mycket nu!
 
 ## plagiat
 - IoCContainer: skrivit själv, men starkt inspirerad av en som gavs till oss av Mats, men denna är förenklad och anpassad till min kod, men har trots detta stora likheter med originalet. Vet inte riktigt hur jag ska klassificera detta. Kan inte riktigt se hur den kan skrivas om utan att man krånglar till den och iom detta ger den "lägre" kvalle

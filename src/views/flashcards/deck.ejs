@@ -10,24 +10,27 @@
             <div class="card-top-row">
               <h3><b> <%= flashcard.front?.translation %> </b></h3>
               <div class="edit-delete-buttons">
-                <!-- <button class="edit-flashcards" id="<%= flashcard.back?.word %>-edit">Edit</button> -->
-                <!-- <button class="delete-flashcards" id="<%= flashcard.id %>">Delete</button> -->
-                <!-- <a href="./flashcards/<%= flashcard.id %>/delete"><button>Delete</button></a> -->
                 <form action="./flashcards/<%= flashcard.id %>/delete" method="post" >
                   <button class="delete-card" id="<%= flashcard.id %>" type="submit">Delete</button>
                 </form>
               </div>
             </div>
-            
             <p> <%= flashcard.front?.gapSentence %></p>
           </div>
           <div class="back hidden">
-            <h3><b> <%= flashcard.back?.word %> </b></h3>
+            <div class="card-top-row">
+              <h3><b> <%= flashcard.back?.word %> </b></h3>
+              <div class="edit-delete-buttons">
+                <form action="./flashcards/<%= flashcard.id %>/delete" method="post" >
+                  <button class="delete-card" id="<%= flashcard.id %>" type="submit">Delete</button>
+                </form>
+              </div>
+            </div>
             <p><%= flashcard.back?.pronunciation %></p>
             <p><%= flashcard.back?.sentence %></p>
           </div>
           <div>
-            <button class="flip-flashcards" id="<%= flashcard.back?.word %>">Flash!</button>
+            <button class="flip-flashcards" id="flash-<%=flashcard.id %>">Flash!</button>
           </div>
         </div>
     <% }) %>

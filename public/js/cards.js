@@ -1,5 +1,6 @@
 document.querySelector('.flashcards').addEventListener('click', (event) => {
   if (event.target.className === 'flip-flashcards') {
+    console.log(event.target.className, event.target.id)
     flipCard(event)
     event.stopPropagation()
     event.preventDefault()
