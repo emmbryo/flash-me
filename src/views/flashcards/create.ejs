@@ -16,18 +16,30 @@
     <form class="create-flashcard" method="post" action="./flashcards/create">
       <div class="input-create">
         <label for="word">Word:</label>
-        <input type="text" name="word" class="word" value="<%= viewData.word %>">
+        <input type="text" name="word" class="word" maxlength="200" required>
         <label for="translation">Translation:</label>
-        <input type="text" name="translation" class="translation" placeholder="<%= viewData.translation %>">
+        <input type="text" name="translation" class="translation" maxlength="200" placeholder="<%= viewData.translation %>">
         <label for="gap-sentence">Sentence:</label>
-        <textarea name="gap-sentence" class="gap-sentence"><%= viewData.gapSentence %></textarea>
+        <textarea name="gap-sentence" class="gap-sentence" maxlength="500" rows="5"><%= viewData.gapSentence %></textarea>
         <label for="pronunciation">Pronunciation:</label>
-        <input type="text" name="pronunciation" class="pronunciation" value="<%= viewData.pronunciation %>">
+        <input type="text" name="pronunciation" class="pronunciation" maxlength="200" value="<%= viewData.pronunciation %>">
         <label for="sentence">Full sentence:</label>
-        <textarea type="text" name="sentence" iclass="sentence"><%= viewData.sentence %></textarea>
+        <textarea type="text" name="sentence" iclass="sentence" maxlength="500" rows="5"><%= viewData.sentence %></textarea>
         <button type="submit">Save</button>
       </div>
     </form>
+    <div class="warning-text">
+      <h3>
+        Be careful! The automatic generation is not flawless:
+      </h3>
+        <ul>
+          <li>It does not take the dutch spelling rules into account when creating the gap sentences, hence the word might not be extracted (eg. huis --> huizen, lopen --> hij loopt)</li>
+          <li>The sentences given is not always correctly formatted in terms of periods, commas and capital letters (they are directly imported from the dutch dictionary <a href="www.woorden.org">woorden.org</a>)</li>
+        </ul>
+        <h3>
+          Please be sure to manually edit the card before saving!
+        </h3>
+    </div>
   </div>
   <% } %>
 </div>

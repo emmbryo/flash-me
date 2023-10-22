@@ -84,3 +84,13 @@ button:hover {
   font-size: 15px;
   padding: 3px;
 }
+
+.card-top-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.create-flashcard, .warning-text {
+  max-width: 600px;
+}

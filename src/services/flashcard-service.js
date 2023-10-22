@@ -4,28 +4,15 @@ import { fileURLToPath } from 'url'
 import Word from '../../woorden-api/src/js/index.js'
 
 export class FlashcardService {
+  #dataFile
+  #relativePath
+  constructor (relativePath = '..', dataFile = 'data/flashcards.json') {
+    this.#dataFile = dataFile
+    this.#relativePath = relativePath
+  }
+
   getCards () {
     return this.#readData()
-  }
-
-  #readData () {
-    const directoryFullName = dirname(fileURLToPath(import.meta.url))
-    const filePath = join(directoryFullName, '..', 'data/flashcards.json')
-    const data = fs.readFileSync(filePath, 'utf8')
-    return JSON.parse(data)
-  }
-
-  #writeData (cardData) {
-    const cards = this.#readData()
-    cards.push(cardData)
-    const jsonData = JSON.stringify(cards, null, 2)
-
-    const directoryFullName = dirname(fileURLToPath(import.meta.url))
-    const filePath = join(directoryFullName, '..', 'data/flashcards.json')
-
-    fs.writeFileSync(filePath, jsonData, 'utf-8')
-
-    return cardData
   }
 
   async searchWord (wordToSearch) {
@@ -43,15 +30,16 @@ export class FlashcardService {
   getDefaultData () {
     return {
       translation: 'The word translated',
-      gapSentence: 'Sentence with the ____ left out',
+      gapSentence: 'Sentence/sentences with the ____ left out',
       word: 'the word to learn',
       pronunciation: 'word written in IPA',
-      sentence: 'The full sentence'
+      sentence: 'The full sentence/sentences'
     }
   }
 
   saveCard (cardData) {
     const card = {
+      id: 0,
       back: { 
         word: cardData.word,
         pronunciation: cardData.pronunciation,
@@ -64,6 +52,30 @@ export class FlashcardService {
     }
     
     return this.#writeData(card)
+  }
+
+  deleteCard (id) {
+    const cards = this.#readData()
+    this.#removeCard(id, cards)
+  
+    const jsonData = JSON.stringify(cards, 2, null)
+
+    const directoryFullName = dirname(fileURLToPath(import.meta.url))
+    const filePath = join(directoryFullName, this.#relativePath, this.#dataFile)
+
+    fs.writeFileSync(filePath, jsonData, 'utf-8')
+  }
+
+  #removeCard (id, cards) {
+    let cardIdentified = false
+    let i = 0
+    while (!cardIdentified && i < cards.length) {
+      if (cards[i].id === id) {
+        cardIdentified = true
+      }
+      i++
+    }
+    cards.splice(i - 1, 1)
   }
 
   #createSentence (wordInfo) {
@@ -81,5 +93,26 @@ export class FlashcardService {
     gapSentances.push(wordInfo.Voorbeeld?.replaceAll(word, gap) ? wordInfo.Voorbeeld?.replaceAll(word, gap) : '')
 
     return gapSentances.toString() 
+  }
+
+  #readData () {
+    const directoryFullName = dirname(fileURLToPath(import.meta.url))
+    const filePath = join(directoryFullName, this.#relativePath, this.#dataFile)
+    const data = fs.readFileSync(filePath, 'utf8')
+    return JSON.parse(data)
+  }
+
+  #writeData (cardData) {
+    const cards = this.#readData()
+    cardData.id = `${cards.length + 1}`
+    cards.push(cardData)
+    const jsonData = JSON.stringify(cards, null, 2)
+
+    const directoryFullName = dirname(fileURLToPath(import.meta.url))
+    const filePath = join(directoryFullName, this.#relativePath, this.#dataFile)
+
+    fs.writeFileSync(filePath, jsonData, 'utf-8')
+
+    return cardData
   }
 }

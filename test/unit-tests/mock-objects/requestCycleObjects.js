@@ -6,7 +6,10 @@ const req = {
     pronunciation: '[IPA stuff]',
     sentence: 'Example sentence with the word',
     translation: 'The word in the source language',
-    'gap-sentence': 'The sentence with the ____ missing'
+    'gap-sentence': 'The sentence with the ____ missing',
+  },
+  params: {
+    id: "0"
   }
 }
 
@@ -18,10 +21,14 @@ const res = {
   },
   error: '',
   path: '',
+  redirectedPath: '',
   data: {},
   render: (path, data = {}) => {
     res.path = path,
     res.data = data
+  },
+  redirect: (path) => {
+    res.redirectedPath = path
   }
 }
 // mock function for next - handling errors

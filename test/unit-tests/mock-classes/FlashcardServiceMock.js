@@ -30,4 +30,8 @@ export class FlashcardServiceMock extends FlashcardService {
       }
     }
   }
+
+  deleteCard (id) {
+    
+  }
 }

@@ -1,5 +1,6 @@
 [
   {
+    "id": "1",
     "back": { 
       "word": "belangrijk",
       "pronunciation": "[bəˈlɑŋrɛik]",
@@ -7,10 +8,11 @@
     },
     "front": {
       "translation": "important",
-      "sentence": "Een _________ dag, een _________ persoon"
+      "gapSentence": "Een _________ dag, een _________ persoon"
     }
   },
   {
+    "id": "2",
     "back": { 
       "word": "geluk", 
       "pronunciation": "[xəˈlʏk]",
@@ -18,10 +20,11 @@
     },
     "front": {
       "translation": "lucky",
-      "sentence": "Het verliefde stelletje straalde van _____."
+      "gapSentence": "Het verliefde stelletje straalde van _____."
     }
   },
   {
+    "id": "3",
     "back": { 
       "word": "moeilijk",
       "pronunciation": "[ˈmujlək]",
@@ -29,10 +32,11 @@
     },
     "front": {
       "translation": "difficult",
-      "sentence": "Ik vond het ________ om toe te geven dat ze gelijk had."
+      "gapSentence": "Ik vond het ________ om toe te geven dat ze gelijk had."
     }
   },
   {
+    "id": "4",
     "back": { 
       "word": "pittig",
       "pronunciation": "[ˈpɪtəx]",
@@ -40,10 +44,11 @@
     },
     "front": {
       "translation": "spicy/punchy",
-      "sentence": "_______ examenopgaven. Hij wordt niet meteen ontslagen, maar er volgt wel een _______ gesprek met de directeur. Een _______ ding (een meisje met karakter)"
+      "gapSentence": "_______ examenopgaven. Hij wordt niet meteen ontslagen, maar er volgt wel een _______ gesprek met de directeur. Een _______ ding (een meisje met karakter)"
     }
   },
   {
+    "id": "5",
     "back": { 
       "word": "ingewikkeld",
       "pronunciation": "[ɪnxəˈwɪkəlt]",
@@ -51,7 +56,19 @@
     },
     "front": {
       "translation": "complicated",
-      "sentence": "Een ___________ probleem oplossen, Die regeling is te ___________ voor mij."
+      "gapSentence": "Een ___________ probleem oplossen, Die regeling is te ___________ voor mij."
+    }
+  },
+  {
+    "id": "6",
+    "back": {
+      "word": "paard",
+      "pronunciation": "[part]",
+      "sentence": "renpaard,paardrijden over het paard getild zijn   (verwend en arrogant zijn) zo sterk als een paard   (heel sterk),"
+    },
+    "front": {
+      "translation": "horse",
+      "gapSentence": "ren_____,_____rijden over het _____ getild zijn   (verwend en arrogant zijn) zo sterk als een _____   (heel sterk),"
     }
   }
 ]

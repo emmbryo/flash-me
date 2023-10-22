@@ -6,12 +6,19 @@
     <div class="flashcard-container">
     <% viewData.forEach( flashcard => { %>
         <div class="flashcard">
-          <div class="edit-delete-buttons">
-            <button class="edit-flashcards" id="<%= flashcard.back?.word %>-edit">Edit</button>
-            <button class="delete-flashcards" id="<%= flashcard.back?.word %>-delete">Delete</button>
-          </div>
           <div class="front">
-            <h3><b> <%= flashcard.front?.translation %> </b></h3>
+            <div class="card-top-row">
+              <h3><b> <%= flashcard.front?.translation %> </b></h3>
+              <div class="edit-delete-buttons">
+                <!-- <button class="edit-flashcards" id="<%= flashcard.back?.word %>-edit">Edit</button> -->
+                <!-- <button class="delete-flashcards" id="<%= flashcard.id %>">Delete</button> -->
+                <!-- <a href="./flashcards/<%= flashcard.id %>/delete"><button>Delete</button></a> -->
+                <form action="./flashcards/<%= flashcard.id %>/delete" method="post" >
+                  <button class="delete-card" id="<%= flashcard.id %>" type="submit">Delete</button>
+                </form>
+              </div>
+            </div>
+            
             <p> <%= flashcard.front?.gapSentence %></p>
           </div>
           <div class="back hidden">

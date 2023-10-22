@@ -1,10 +1,11 @@
 ## TODO
 
-* spara kortet till .json-filen
+* spara kortet till .json-filen - OK!
 * edit/delete cards
 * felhantering om ordet inte finns
 * maxgräns på input
 * validering av input
+* lägga till id, på alla ställen...
 
 ## Notes during development
 - bindestreck i html, översätts till keys in javascript --> ['key-name']

@@ -66,4 +66,13 @@ export class FlashcardController {
       next(error)
     }
   }
+
+  deleteCard (req, res, next) {
+    try {
+      this.#service.deleteCard(req.params.id)
+      res.redirect('..')
+    } catch (error) {
+      next(error)
+    }
+  }
 }
