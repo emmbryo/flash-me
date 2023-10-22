@@ -6,7 +6,7 @@
     <form class="search-form" action="./flashcards/search" method="post">
       <div class="input-search">
         <label for="search">Enter a dutch word:</label>
-        <input type="text" id="search-input" name="search">
+        <input type="text" id="search-input" name="search" maxlength="35">
         <button type="submit">Search</button>
       </div>
     </form>
@@ -16,9 +16,9 @@
     <form class="create-flashcard" method="post" action="./flashcards/create">
       <div class="input-create">
         <label for="word">Word:</label>
-        <input type="text" name="word" class="word" maxlength="100" value="<%= viewData.word %>">
+        <input type="text" name="word" class="word" maxlength="100" value="<%= viewData.word %>" required>
         <label for="translation">Translation:</label>
-        <input type="text" name="translation" class="translation" maxlength="100" placeholder="<%= viewData.translation %>">
+        <input type="text" name="translation" class="translation" maxlength="100" placeholder="<%= viewData.translation %>" required>
         <label for="gap-sentence">Sentence:</label>
         <textarea name="gap-sentence" class="gap-sentence" maxlength="400" rows="5"><%= viewData.gapSentence %></textarea>
         <label for="pronunciation">Pronunciation:</label>
