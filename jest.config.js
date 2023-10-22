@@ -19,6 +19,7 @@ export default {
   collectCoverageFrom: [
       "src/services/*.{js,jsx,ts,tsx}",
       "src/controllers/*.{js,jsx,ts,tsx}",
+      "src/repositories/*.{js,jsx,ts,tsx}",
       "!woorden-api/**"
   ],
 

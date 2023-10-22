@@ -1,4 +1,5 @@
-import { FlashcardService } from "../../src/services/flashcard-service"
+import { FlashcardService } from '../../src/services/flashcard-service.js'
+import { FlashcardRepositoryMock } from './mock-classes/FlashcardRepositoryMock.js'
 import { req } from './mock-objects/requestCycleObjects.js'
 import fs from 'fs'
 import { dirname, join } from 'path'
@@ -7,7 +8,7 @@ import { fileURLToPath } from 'url'
 const relativePath = '../..'
 const dataFile = 'test/unit-tests/mock-data/flashcards-mock.json'
 
-const service = new FlashcardService(relativePath, dataFile)
+const service = new FlashcardService(new FlashcardRepositoryMock(relativePath, dataFile))
 const testWord = 'belangrijk'
 
 const directoryFullName = dirname(fileURLToPath(import.meta.url))
@@ -60,10 +61,11 @@ describe('Flashcard service deleteCard method', () => {
   const rawDataBeforeDelete = fs.readFileSync(filePath, 'utf8')
   const dataBeforeDelete = JSON.parse(rawDataBeforeDelete)
 
-  service.deleteCard(dataBeforeDelete.length)
+  service.deleteCard(dataBeforeDelete[0].id)
   
   const rawDataAfterDelete = fs.readFileSync(filePath, 'utf8')
   const dataAfterDelete = JSON.parse(rawDataAfterDelete)
+  
   test('deleteCard() should reduce the length of the data array by one.', () => {
     expect(dataAfterDelete.length).toBe(dataBeforeDelete.length - 1)
   })
