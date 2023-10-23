@@ -1,19 +1,8 @@
 ## TODO
 
-* spara kortet till .json-filen - OK!
-* edit/delete cards - OK!
-* maxgräns på input - OK!
-* lägga till id, på alla ställen... - OK!
-* felhantering om ordet inte finns - OK!
-* skapa repository OK!
-* fixa search knapp - OK!
-* styla om - OK!
-* beskrivning test av UI - manuella - OK!
-* testrapport - OK!
-* deletecard() - flytta funktionalitet?, Nej, men diskutera under klasser - OK!
-* validering av input - halvOK
-
-* Skriva klart reflektion
+* sammanfatting reflektioner
+* Uppdatera README.md
+* plagiat kommentar
 
 
 ## Notes during development

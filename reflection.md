@@ -127,7 +127,12 @@ Handlar ofta om team work, vilket inte riktigt går att applicera på detta proj
 
 System ska byggas i små, fungerande steg. Jämförelse med att bygga en stad görs, man bygger bit för bit och skalar upp efter hand.
 
-I detta projekt har jag jobbat med SoC i tanken och försökt dela upp projektet i mindre, testbara bitar och gjort vad jag kan för att undvika så kallad spaghettikod, som är svårhanterad, ostrukturerad och knappt testbar.
+I detta projekt har jag jobbat med SoC i tanken och försökt dela upp projektet i mindre, testbara bitar och gjort vad jag kan för att undvika så kallad spaghettikod, som är svårhanterad, ostrukturerad och knappt testbar. Också använt designprincipen IoC: Inversion of Control genom att använda en IoCContainer för att hantera beroenden och ge en bild över projektets struktur.
+
+#### Registering av klasserna i bootstrap.js, konfiguration till containern:
+<img src="./reflection-images/chapter11_systems/bootstrap.png" width="500px">
+
+
 
 ## Sammanfattning
-var finns de största problemen, vad kommer naturligt, vad mäste man tänka på?
+var finns de största problemen, vad kommer naturligt, vad måste man tänka på?
