@@ -1,10 +1,12 @@
+<script type="module" src="./js/cards.js"></script>
+
 <h1>The saved card</h1>
 
 <div id="flashcard-container">
     <div class="flashcards" id="flashcard-solo">
       <div class="front">
         <div class="card-top-row">
-          <h3><b> <%= viewData.front?.translation %> </b></h3>
+          <h2 class="word-translation"><b> <%= viewData.front?.translation %> </b></h2>
           <div class="edit-delete-buttons">
             <form action="./flashcards/<%= viewData.id %>/delete" method="post" >
               <button class="delete-card" id="<%= viewData.id %>" type="submit">Delete</button>
@@ -15,7 +17,7 @@
       </div>
       <div class="back hidden">
         <div class="card-top-row">
-          <h3><b> <%= viewData.back?.word %> </b></h3>
+          <h2 class="word-learn"><b> <%= viewData.back?.word %> </b></h2>
           <div class="edit-delete-buttons">
             <form action="./flashcards/<%= viewData.id %>/delete" method="post" >
               <button class="delete-card" id="<%= viewData.id %>" type="submit">Delete</button>
@@ -28,7 +30,5 @@
       <div>
         <button class="flip-flashcards" id="flash-<%= viewData.id %>">Flash!</button>
       </div>
+    </div>
 </div>
-</div>
-
-  <script src="./js/cards.js"></script>

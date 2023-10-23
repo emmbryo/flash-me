@@ -1,3 +1,5 @@
+<script type="module" src="./js/cards.js"></script>
+
 <div class="flashcards">
   <h1 id="headline">
     Get ready to flash:
@@ -8,7 +10,7 @@
         <div class="flashcard">
           <div class="front">
             <div class="card-top-row">
-              <h3><b> <%= flashcard.front?.translation %> </b></h3>
+              <h2 class="word-translation"><b> <%= flashcard.front?.translation %> </b></h2>
               <div class="edit-delete-buttons">
                 <form action="./flashcards/<%= flashcard.id %>/delete" method="post" >
                   <button class="delete-card" id="<%= flashcard.id %>" type="submit">Delete</button>
@@ -19,7 +21,7 @@
           </div>
           <div class="back hidden">
             <div class="card-top-row">
-              <h3><b> <%= flashcard.back?.word %> </b></h3>
+              <h2 class="word-learn"><b> <%= flashcard.back?.word %> </b></h2>
               <div class="edit-delete-buttons">
                 <form action="./flashcards/<%= flashcard.id %>/delete" method="post" >
                   <button class="delete-card" id="<%= flashcard.id %>" type="submit">Delete</button>
@@ -41,5 +43,3 @@
     </div>
     <% } %>
 </div>
-
-<script src="./js/cards.js"></script>

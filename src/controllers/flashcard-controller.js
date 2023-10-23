@@ -40,7 +40,7 @@ export class FlashcardController {
     }
   }
 
-  createCard (res, next) {
+  createCard (res) {
     try {
       const defaultData = this.#service.getDefaultData()
       res.render('flashcards/create', { viewData: defaultData })
@@ -49,7 +49,7 @@ export class FlashcardController {
     }
   }
 
-  async searchWord (req, res, next) {
+  async searchWord (req, res) {
     try {
       const wordInfo = await this.#service.searchWord(req.body.search)
       res.render('flashcards/create', { viewData: wordInfo })

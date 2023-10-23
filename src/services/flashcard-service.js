@@ -26,6 +26,25 @@ export class FlashcardService {
     }
   }
 
+  #createGapSentence (word, wordInfo) {
+    const gap = '_'.repeat(word.length)
+    const gapSentances = []
+    gapSentances.push(wordInfo.Voorbeelden?.replaceAll(word, gap))
+    gapSentances.push(wordInfo.Voorbeeld?.replaceAll(word, gap) ? wordInfo.Voorbeeld?.replaceAll(word, gap) : '')
+
+    return gapSentances.toString() 
+  }
+  
+  #createSentence (wordInfo) {
+    const sentances = []
+    sentances.push(wordInfo.Voorbeelden ? wordInfo.Voorbeelden : '')
+    sentances.push(wordInfo.Voorbeeld ? wordInfo.Voorbeeld : '')
+    
+    return sentances.toString()
+  }
+
+
+
   getDefaultData () {
     return {
       translation: 'The word translated',
@@ -49,7 +68,6 @@ export class FlashcardService {
         gapSentence: cardData['gap-sentence']
       }
     }
-    
     return this.#repository.writeData(card)
   }
 
@@ -57,20 +75,4 @@ export class FlashcardService {
     this.#repository.deleteCard(id)
   }
 
-  #createSentence (wordInfo) {
-    const sentances = []
-    sentances.push(wordInfo.Voorbeelden ? wordInfo.Voorbeelden : '')
-    sentances.push(wordInfo.Voorbeeld ? wordInfo.Voorbeeld : '')
-    
-    return sentances.toString()
-  }
-
-  #createGapSentence (word, wordInfo) {
-    const gap = '_'.repeat(word.length)
-    const gapSentances = []
-    gapSentances.push(wordInfo.Voorbeelden?.replaceAll(word, gap))
-    gapSentances.push(wordInfo.Voorbeeld?.replaceAll(word, gap) ? wordInfo.Voorbeeld?.replaceAll(word, gap) : '')
-
-    return gapSentances.toString() 
-  }
 }

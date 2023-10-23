@@ -29,6 +29,7 @@
 * A form should appear:
   * The top part shows an input field and a search button
   * The bottom part is a form with several input fields (word, translation, gap sentence/sentences, pronunciation and full sentence/sentences and a save button)
+  * There should be a warning text at the bottom of the page, describing the limitations of the automatic process for filling in the word info
 
 ### Search a word
 3.2: Type in the dutch word belangrijk and press the search button
@@ -44,6 +45,8 @@
 * A warning should appear over the input field telling you that the word is not found.
 3.5: Make sure the input field is empty, then press search
 * A warning should appear over the input field telling you that the word must be between 1 and 35 characters long.
+3.6: Try filling in big texts in the different fields
+* 
 
 ![flash-warning](./images/flash-warning.png)
 

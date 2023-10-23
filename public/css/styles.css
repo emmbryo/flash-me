@@ -6,6 +6,7 @@
 body {
   background-color: rgb(168, 213, 205);
   padding: 50px;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
 .hidden {
@@ -22,8 +23,12 @@ footer {
   margin-top: 30px;
 }
 
-h1, button {
+h1, button, .welcome {
   font-family: trashhand;
+}
+
+.welcome {
+  margin-top: 75px;
 }
 
 .welcome-menu a {
@@ -50,6 +55,9 @@ button:hover {
 }
 
 .flashcard {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   width: auto;
   height: auto;
   border: solid 2px black;
@@ -67,10 +75,38 @@ button:hover {
   box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.5);
 }
 
-.input-create {
+.input-search {
+  max-width: 600px;
+  margin-bottom: 50px;
+}
+
+.input-create, .input-search {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 20px;
+}
+
+.input-search {
+  gap: 15px;
+}
+
+.input-element {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+input, textarea {
+  font-size: 16px;
+  border-radius: 10px;
+  padding: 5px;
+  border: solid 2px black;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+label {
+  font-family: trashhand;
+  font-size: 20px;
 }
 
 .edit-delete-buttons {

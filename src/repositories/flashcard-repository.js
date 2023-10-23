@@ -3,34 +3,44 @@ import { dirname, join } from 'path'
 import { fileURLToPath } from 'url'
 
 export class FlashcardRepository {
-  #dataFile
-  #relativePath
+  #filePath
 
   constructor (relativePath = '..', dataFile = 'data/flashcards.json') {
-    this.#dataFile = dataFile
-    this.#relativePath = relativePath
+    const directoryFullName = dirname(fileURLToPath(import.meta.url))
+    this.#filePath = join(directoryFullName, relativePath, dataFile)
+
   }
 
   readData () {
-    const directoryFullName = dirname(fileURLToPath(import.meta.url))
-    const filePath = join(directoryFullName, this.#relativePath, this.#dataFile)
-    const data = fs.readFileSync(filePath, 'utf8')
+    const data = fs.readFileSync(this.#filePath, 'utf8')
     return JSON.parse(data)
   }
 
-  writeData (cardData) {
+  writeData (newCard) {
     const cards = this.readData()
-    const highestId = cards[cards.length - 1].id
-    cardData.id = Number.parseInt(highestId) + 1
-    cards.push(cardData)
+
+    this.#setNewCardId(cards, newCard)
+    this.#addNewCard(cards, newCard)
+    this.#writeCardsToFile(cards)
+
+    return newCard
+  }
+
+  #setNewCardId (cards, newCard) {
+    let highestId = 1
+    if (cards.length > 0) {
+      highestId = cards[cards.length - 1].id + 1
+    }
+    newCard.id = Number.parseInt(highestId)
+  }
+
+  #addNewCard (cards, newCard) {
+    cards.push(newCard)
+  }
+
+  #writeCardsToFile (cards) {
     const jsonData = JSON.stringify(cards, null, 2)
-
-    const directoryFullName = dirname(fileURLToPath(import.meta.url))
-    const filePath = join(directoryFullName, this.#relativePath, this.#dataFile)
-
-    fs.writeFileSync(filePath, jsonData, 'utf-8')
-
-    return cardData
+    fs.writeFileSync(this.#filePath, jsonData, 'utf-8')
   }
 
   deleteCard (id) {
@@ -39,10 +49,7 @@ export class FlashcardRepository {
   
     const jsonData = JSON.stringify(cards, 2, null)
 
-    const directoryFullName = dirname(fileURLToPath(import.meta.url))
-    const filePath = join(directoryFullName, this.#relativePath, this.#dataFile)
-
-    fs.writeFileSync(filePath, jsonData, 'utf-8')
+    fs.writeFileSync(this.#filePath, jsonData, 'utf-8')
   }
 
   #removeCard (id, cards) {
@@ -56,6 +63,4 @@ export class FlashcardRepository {
     }
     cards.splice(i - 1, 1)
   }
-
-  
 }

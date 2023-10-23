@@ -5,10 +5,14 @@
 * maxgräns på input - OK!
 * lägga till id, på alla ställen... - OK!
 * felhantering om ordet inte finns - OK!
+* skapa repository OK!
+* fixa search knapp - OK!
+* styla om - OK!
+* beskrivning test av UI - manuella - OK!
 
 * validering av input - halvOK
-* skapa repository
-* test av UI - manuella
+
+* deletecard() - flytta funktionalitet?
 * testrapport
 * Skriva klart reflektion
 
