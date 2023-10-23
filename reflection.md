@@ -131,8 +131,3 @@ I detta projekt har jag jobbat med SoC i tanken och försökt dela upp projektet
 
 #### Registering av klasserna i bootstrap.js, konfiguration till containern:
 <img src="./reflection-images/chapter11_systems/bootstrap.png" width="500px">
-
-
-
-## Sammanfattning
-var finns de största problemen, vad kommer naturligt, vad måste man tänka på?

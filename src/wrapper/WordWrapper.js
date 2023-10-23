@@ -1,4 +1,4 @@
-import Word from '../../woorden-api/src/js/index.js'
+import { Word } from '../../woorden-api/src/js/index.js'
 
 export class WordWrapper {
   #word
