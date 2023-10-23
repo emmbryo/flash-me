@@ -9,11 +9,10 @@
 * fixa search knapp - OK!
 * styla om - OK!
 * beskrivning test av UI - manuella - OK!
-
+* testrapport - OK!
+* deletecard() - flytta funktionalitet?, Nej, men diskutera under klasser - OK!
 * validering av input - halvOK
 
-* deletecard() - flytta funktionalitet?
-* testrapport
 * Skriva klart reflektion
 
 

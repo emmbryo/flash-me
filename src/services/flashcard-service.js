@@ -71,5 +71,4 @@ export class FlashcardService {
   deleteCard (id) {
     this.#repository.deleteCard(id)
   }
-
 }

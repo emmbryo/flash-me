@@ -63,7 +63,7 @@ The user is met by a simple interface containing:
 * The card consists of two sides
   * One with the word in the source language and sentance/sentences in the target language with the word missing
   * The other with the word to learn (target language), it's pronunciation and the full sentance/sentances 
-#### 4.2 - Edit - Not implemented in version 1.0.0
+#### 4.2 - Edit - ❗ Not implemented in version 1.0.0
 * A button: Edit
 * When clicked:
   * All information on the card can be changed, they appear as text in text boxes
@@ -76,4 +76,4 @@ The user is met by a simple interface containing:
 * When the user makes an error, an error message should be presented. Three cases:
   * The search word not correctly spelled
   * The search word is missing
-  * The module is not responding
+  * The woorden.org module is not responding

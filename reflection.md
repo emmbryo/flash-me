@@ -107,23 +107,27 @@ Klassen fångar upp de fel som kastas av modulen, kontrollerar dem och skickar i
 <hr>
 
 ## Kapitel 9: Enhetstester (Unit Tests)
-Testa tidigt, kanske till och med innan koden skrivs? TDD
-Kan testerna anpassas till ändringar i koden på ett enkelt sätt?
-Är testerna läsbara så man direkt kan förstå exakt vad som testas
+Till skillnad från när modulen skrevs har jag denna gång jobbat med enhetstester. Boken är inne och nosar på TDD, men så långt har jag inte gått, men vartefter ny funktionalitet lagts till har enhetstester lagts till och innan ny kos skrivits har jag sett till att testerna gått igenom. Som boken boken förespråkar har jag försökt skriva självförklarande tester vars syfte enkelt ska gå att avkoda endast genom en snabbare titt. Ett annat mål är också att testerna enkelt ska kunna ändras om koden ändras.
+
+<img src="./reflection-images/chapter9_unit_test/unit_tests.png" width="500">
+
+Ett problem i min testning är att service klassen inte testas helt isolerat, utan service och repository testas tillsammans, vilket kan göra det svårt att veta var felet ligger om testet inte går igenom och sabbar själva tanken med enehetstester... Tanken var att skapa en mock-klass av repository och injicera i service (så som det är gjort mellan controller och service), men tiden rann iväg. 
+<hr>
 
 ## Kapitel 10: Klasser (Classes)
-Hur är klassen organiserad, vilken ordning kommer grejerna?
-privata metoder i botten, men går detta emot vertikal formattering? Ska de delas upp så att de ligger efter de publika metoder som kallar dem, eller är det mer naturligt att gruppera dem utifrån publik/privat??
-Inte för stora!
-Single Responsibility Principle!
-Ett användningsområde = bara en anledning att ändra klassen
-Kolla cohesion! Används fälten i alla metoder? = antalet fält ska inte vara för stort, då kan det var läge att bryta upp
+Några viktiga aspekter som tas upp av boken är att hålla nere klassernas storlek och att de följer SRP: Single Responsibility Principle. Jag har byggt upp applikationen utefter: { router-controller-service-repository }-mönstret, men inledningsvis, eftersom jag inte har någon databas utan läser från fil, implementerade jag inte någon repository-klass och hade funktionaliteten rörande läsa/skriva till fil i service-klassen. Detta ledde till att service klassen bröt mot SRP, så jag skapade en repository-klass för att hantera läsa/skriva data. Serviceklassen hade dessutom låg cohesion eftersom bara hälften av klassens metoder använde sig av fälten som innehöll information gällande från vilken fil datan skulle läsas/skrivas. När denna funktionalitet istället fick en egen klass, hade jag nu istället två separata klasser, var och en med mycket högre cohesion.
+
+Gällande storleken på klasserna är det inte så att man i alla fall kan se hela klassen i editorn, men den längste av dem är 79 rader (flashcard-controller.js). Den längsta filen är server.js, som konfigurerar upp express.js, med 112 rader.
+
+#### Fördelningen av koden i projektet:
+<img src="./reflection-images/chapter10_classes/code_stats.png" width="700px">
 
 ## Kapitel 11: System (Systems)
-Handlar ofta om team work, vilket inte riktigt går att applicera på detta projekt.
-Decentraliserat, separation of concerns
-Standarder mycket viktiga, men skall inte följas blint, utan bara när det är försvarbart
-Hålla olika delar så "fria" som möjligt
+Handlar ofta om team work, vilket inte riktigt går att applicera på detta projekt. Boken poängterar att det blir extra viktigt med SoC: Separation of Concerns när man jobbar i team, så varje del av projektet kan utvecklas mer eller mindre isolerat. Det talas också om att standarder är viktiga, men att de inte följas blint, utan bara när det är försvarbart, detta också för att hålla olika delar så "fria" som möjligt. 
+
+System ska byggas i små, fungerande steg. Jämförelse med att bygga en stad görs, man bygger bit för bit och skalar upp efter hand.
+
+I detta projekt har jag jobbat med SoC i tanken och försökt dela upp projektet i mindre, testbara bitar och gjort vad jag kan för att undvika så kallad spaghettikod, som är svårhanterad, ostrukturerad och knappt testbar.
 
 ## Sammanfattning
 var finns de största problemen, vad kommer naturligt, vad mäste man tänka på?
