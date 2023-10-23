@@ -1,8 +1,5 @@
-import fs from 'fs'
-import { dirname, join } from 'path'
-import { fileURLToPath } from 'url'
 import { FlashcardRepository } from '../repositories/flashcard-repository.js'
-import Word from '../../woorden-api/src/js/index.js'
+import { WordWrapper } from '../wrapper/WordWrapper.js'
 
 export class FlashcardService {
   #repository
@@ -15,7 +12,7 @@ export class FlashcardService {
   }
 
   async searchWord (wordToSearch) {
-    const word = new Word(wordToSearch)
+    const word = new WordWrapper(wordToSearch)
     const wordInfo = await word.getWordInfo()
     return {
       translation: 'Fill the in word in your source language.',
@@ -55,17 +52,17 @@ export class FlashcardService {
     }
   }
 
-  saveCard (cardData) {
+  saveCard (newCard) {
     const card = {
       id: 0,
       back: { 
-        word: cardData.word,
-        pronunciation: cardData.pronunciation,
-        sentence: cardData.sentence 
+        word: newCard.word,
+        pronunciation: newCard.pronunciation,
+        sentence: newCard.sentence 
       },
       front: {
-        translation: cardData.translation,
-        gapSentence: cardData['gap-sentence']
+        translation: newCard.translation,
+        gapSentence: newCard['gap-sentence']
       }
     }
     return this.#repository.writeData(card)

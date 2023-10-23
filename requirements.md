@@ -39,7 +39,7 @@ The user is met by a simple interface containing:
 * Box to fill in the desired word
 * Two options: 
   * Get word info - search info on the given word
-  * Create - to create the card and save its contents to the .json file
+  * Save - to create the card and save its contents to the .json file
 #### 3.2 - Choose a word
 * The user is given the choice to enter a dutch word in the box and press get info
 * If info on the word is available, the info is filled in to the sumbmission form for the card
@@ -54,7 +54,7 @@ The user is met by a simple interface containing:
 * The application uses the woorden-api to retrieve information about the word and fills in the desired parameters.
 
 #### 3.4 - Generate flashcard
-* A flashcard is generated when the user presses the Create button
+* A flashcard is generated when the user presses the Save button
 * The information about the card is saved to the .json file
 * The user is presented with the new card. 
 
@@ -63,7 +63,7 @@ The user is met by a simple interface containing:
 * The card consists of two sides
   * One with the word in the source language and sentance/sentences in the target language with the word missing
   * The other with the word to learn (target language), it's pronunciation and the full sentance/sentances 
-#### 4.2 - Edit
+#### 4.2 - Edit - Not implemented in version 1.0.0
 * A button: Edit
 * When clicked:
   * All information on the card can be changed, they appear as text in text boxes
@@ -71,3 +71,9 @@ The user is met by a simple interface containing:
 #### 4.3 - Delete
 * A button: Delete
 * When pressed, the card is deleted
+
+### 5. Error messages
+* When the user makes an error, an error message should be presented. Three cases:
+  * The search word not correctly spelled
+  * The search word is missing
+  * The module is not responding

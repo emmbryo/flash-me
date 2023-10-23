@@ -17,16 +17,16 @@ export class FlashcardServiceMock extends FlashcardService {
     }
   }
 
-  saveCard (cardData) {
+  saveCard (newCard) {
     return {
       back: { 
-        word: cardData.word,
-        pronunciation: cardData.pronunciation,
-        sentence: cardData.sentence 
+        word: newCard.word,
+        pronunciation: newCard.pronunciation,
+        sentence: newCard.sentence 
       },
       front: {
-        translation: cardData.translation,
-        gapSentence: cardData['gap-sentence']
+        translation: newCard.translation,
+        gapSentence: newCard['gap-sentence']
       }
     }
   }

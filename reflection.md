@@ -70,26 +70,41 @@ Här används de tre privata metoderna #setNewcardId, #addNewCard och #writeCard
 <img src="./reflection-images/chapter5_formatting/grouping_and_horizontal.png" width="500px">
 
 Saker som "hör ihop" ska enligt boken grupperas tillsammans, men det är inte alltid självklart vad som hör till vad och var man bör stoppa in en mellanslag för att öka läsbarheten. I exemplet ovan bör kanske de privata metoderna ha ett mellanslag mellan skapandet av konstanterna och array-operationerna, iaf i den metoden med två konstanter, det hade ökat läsbarheten och tydliggjort sammanhang. Det finns även en icke konsekvent beteende gällande retursatsen, som i de private metoderna står för sig själv, medans de i den publika sitter ihop med resten. I den senare gör dock formatet på det som returneras, objektet, att det luftas ut, vilket underlättar läsbarhet även utan mellanslag. Här finns också exempel på radbrytning för att undvika att text går på tvären i oändlighet och ger upphov till den fruktansvärda horisontella scrollningen som kan bryta ner vemsomhelst.
+<hr>
 
 ## Kapitel 6: Objekt och datastrukturer (Objects and Data Structures)
-Gränsdragning mellan publikt och privat inom klassen
-Abstraktioner kring word parametern, är det lätt add addera saker bakom kulisserna?
-Finns det någon dold datastruktur i appen, man ska inte blanda!
-Law of demeter, finns det gränsfall i koden?
-Data nås genom actions, inte genom att man får den direkt
+I detta projekt har jag använt mig av klasser och objekt på det stora, men med ett lite för stort undantag. Ett kort skapas som ett fristående objekt, och är då inte knutet till en klass. Hade jag haft en databas för att spara korten i hade det funnits en modell med beskrivning och inbyggda metoder, vilket gjort dem till objekt. men eftersom jag valde att inte ha en DB i detta steg, utan läsa datan från, och skriva den till, fil, så hamnar den i datastrukturfacket. Boken uppmuntrar att man inte ska blanda, så det hade varit mer lämpligt att skapa en egen klass för kort och jobbat utifrån den. För i och med nuvarande struktur så dyker datastrukturen för kort upp lite här och var så om man måste ändra något blir det mycket jobb, i sann datastruktur-anda gällande ändringar av själva datan. 
+
+<img src="./reflection-images/chapter6_objects_data_struc/data_structures.png" width="400px">
+
+Inte så lätt att underhålla, hade varit mycket bättre att kunna använda sig av:
+```javascript
+const card = new Card({ params })
+```
+Både för default data och data för ett kort, snyggt och avgränsat.
+<hr>
+
+### Law of demeter
+Denna lag har jag hållt hårt i under detta projekt och gjort mitt bästa för att inte bryta mot den. Jag har nu inte lyckats hitta ett enda ställe (för kaxigt..? ) i koden där den bryts, utan mina objekt kallar bara på metoder av sina närmaste, som i sin tur kallar nästa metod genom kedjan. Detta görs genom strukturen router - controller - service - repository, där alla har sitt huvudområde.
+<hr>
 
 ## Kapitel 7: Felhantering (Error Handling)
-Hur hantera felen från woorden-api, egna undantag
-Fel ska hanteras med tydlighet, inte poppa upp lite här och var i olika form.
-Undantag före felkoder
-Undantagen ska komma med flrklaring om sammanhang
+Alla fel kommer i samma form, vilket är by-the-book så att säga. Jag jobbar med undantag som kastas och try-catch-satser som fångar. Hur felen sedan hanteras skiljer sig lite, beroende på vad felet har för ursprung. Detta resulterar i att metoder inte returnerar olika saker beroende på om ngt gått fel eller ej, som boken förespråkar. Undantagen kastas med skräddarsydda meddelanden som försöks hållas korta och konscisa.
+
+Fel som användaren kan vara instresserad av fångas upp och presenteras i vyerna. Andra djupare fel, genererar error-vyer med ganska lite information, bara 400, eller 500 kod och lite förklarande text vad detta är för fel.
+#### Felmeddelande till användaren, som här missat att fylla i ett ord:
+<img src="./reflection-images/chapter7_error/error_char.png" width="400px">
+
 
 ## Kapitel 8: Gränser (Boundaries)
-Användandet av woorden-api
-Kapsla in användandet av externa moduler? Eget interface till woorden-api?
-Klarar gränsen av ändringar i modulen?
-Gränsen måste hållas lätt att underhålla, redo att hantera ändringar
-Finns det spänningar mellan flash-me och woorden-api?
+### Användandet av woorden-api
+Det är här som modulen kommer in i bilden. Hur tar man in kod som man inte har någon kontroll över? (Stämmer kanske inte riktigt i detta fall då jag skrivit modulen själv, men man bör ändå hantera den som främmande kod som inte kan litas på till 100%). För att få mer kontroll har jag skapat en wrapper-klass till woorden.org api:et.
+
+#### Klassen WordWrapper.js:
+<img src="./reflection-images/chapter8_boundaries/wrapper.png" width="500px">
+
+Klassen fångar upp de fel som kastas av modulen, kontrollerar dem och skickar iväg original-felet eller skapar ett nytt, beroende på vad som gått fel. Denna klass begränsar också det tillgängliga gränssnittet då den bara har en metod, till skillnad från woorden-api som har flertalet, men då dessa inte används i applikationen är det onödigt att ha dem tillgängliga. I och med detta följer jag bokens beskrivning av att skräddarsy gränssnittet till min applikation och att kapsla in "third-party-code" för att just kunna skräddarsy, men också för att göra applikationen flexibel gentemot extern kod. 
+<hr>
 
 ## Kapitel 9: Enhetstester (Unit Tests)
 Testa tidigt, kanske till och med innan koden skrivs? TDD
