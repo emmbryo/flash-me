@@ -8,7 +8,6 @@ export class FlashcardRepository {
   constructor (relativePath = '..', dataFile = 'data/flashcards.json') {
     const directoryFullName = dirname(fileURLToPath(import.meta.url))
     this.#filePath = join(directoryFullName, relativePath, dataFile)
-
   }
 
   readData () {
@@ -46,10 +45,7 @@ export class FlashcardRepository {
   deleteCard (id) {
     const cards = this.readData()
     this.#removeCard(id, cards)
-  
-    const jsonData = JSON.stringify(cards, 2, null)
-
-    fs.writeFileSync(this.#filePath, jsonData, 'utf-8')
+    this.#writeCardsToFile(cards)
   }
 
   #removeCard (id, cards) {
