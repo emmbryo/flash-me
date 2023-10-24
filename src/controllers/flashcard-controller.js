@@ -23,9 +23,9 @@ export class FlashcardController {
    * @param {Function} next - Express next middleware function.
    */
    
-  index (res, next) {
+  renderStartView (res, next) {
     try {
-      res.render('home/index')
+      res.render('start/index')
     } catch (error) {
       next(error)
     }

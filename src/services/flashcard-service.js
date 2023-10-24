@@ -14,34 +14,23 @@ export class FlashcardService {
   async searchWord (wordToSearch) {
     const word = new WordWrapper(wordToSearch)
     const wordInfo = await word.getWordInfo()
+
     return {
       translation: 'Fill the in word in your source language.',
       gapSentence: this.#createGapSentence(wordToSearch, wordInfo),
       word: wordToSearch,
-      pronunciation: wordInfo.Uitspraak,
-      sentence: this.#createSentence(wordInfo),
+      pronunciation: wordInfo.pronunciation,
+      sentence: wordInfo.examples,
     }
   }
 
   #createGapSentence (word, wordInfo) {
     const gap = '_'.repeat(word.length)
-    const gapSentances = []
-    gapSentances.push(wordInfo.Voorbeelden?.replaceAll(word, gap))
-    gapSentances.push(wordInfo.Voorbeeld?.replaceAll(word, gap) ? wordInfo.Voorbeeld?.replaceAll(word, gap) : '')
+    const gapSentances = wordInfo.examples.replaceAll(word, gap)
 
-    return gapSentances.toString() 
+    return gapSentances
   }
   
-  #createSentence (wordInfo) {
-    const sentances = []
-    sentances.push(wordInfo.Voorbeelden ? wordInfo.Voorbeelden : '')
-    sentances.push(wordInfo.Voorbeeld ? wordInfo.Voorbeeld : '')
-    
-    return sentances.toString()
-  }
-
-
-
   getDefaultData () {
     return {
       translation: 'The word translated',

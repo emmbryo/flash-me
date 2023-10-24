@@ -11,7 +11,7 @@ const resolveFlashcardController = (req) => {
   return req.app.get('container').resolve('FlashcardController')
 }
 
-router.get('/', (req, res, next) => resolveFlashcardController(req).index(res, next))
+router.get('/', (req, res, next) => resolveFlashcardController(req).renderStartView(res, next))
 
 router.get('/flashcards', (req, res, next) => resolveFlashcardController(req).getCards(res, next))
 
