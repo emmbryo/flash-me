@@ -22,10 +22,6 @@ Att, som i de första två exemplen (som egentligen bara är ett och samma exemp
 
 <hr>
 
-### html vs javascript
-
-<hr>
-
 ## Kapitel 3: Funktioner (Functions)
 Boken kan sägas ha en någpt extrem inställning till funktioner. De ska var aså korta som möjligt och ta så få argument som möjligt, helst inga alls. Detta med få antal argument är lite lurigt att följa när man bygger en applikation i express, då man är "fast" med de tre objekten för request, response samt en next()-funktion som gör det möjligt att fånga upp fel eller navigera specialla vägar genom applikationen. Jag har försökt skala ner dessa argument när det är möjligt, men ofta krävs alla tre för att man kunna använda express så som det är tänkt.
 #### I klassen flashcard-controller.js:
