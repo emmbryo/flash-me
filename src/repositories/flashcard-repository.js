@@ -15,6 +15,10 @@ export class FlashcardRepository {
     return JSON.parse(data)
   }
 
+  /**
+   * @param {object} newCard 
+   * @returns {object} the card
+   */
   writeData (newCard) {
     const cards = this.readData()
 
@@ -25,6 +29,10 @@ export class FlashcardRepository {
     return newCard
   }
 
+  /**
+   * @param {object[]} cards 
+   * @param {object} newCard 
+   */
   #setNewCardId (cards, newCard) {
     let highestId = 1
     if (cards.length > 0) {
@@ -42,12 +50,18 @@ export class FlashcardRepository {
     fs.writeFileSync(this.#filePath, jsonData, 'utf-8')
   }
 
+  /**
+   * @param {string} id 
+   */
   deleteCard (id) {
     const cards = this.readData()
     this.#removeCard(id, cards)
     this.#writeCardsToFile(cards)
   }
 
+  /**
+   * @param {object[]} cards 
+   */
   #removeCard (id, cards) {
     let cardIdentified = false
     let i = 0

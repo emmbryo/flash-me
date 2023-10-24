@@ -53,6 +53,15 @@ I bilden ovan finns även en kommentar till konstruktorn, där typen för parame
 const service = new FlashcardService()
 ```
 Så frågan man kan ställa sig här är om denna kommentar faktiskt tillför någon info, eller om det är fullt tillräckligt att inspektera default-parametern i kontruktorn för att kunna ta till sig nödvändig info rörande parameterns typ. Men å andra sidan, om man tar bort kommentarer så öppnar man upp för att konstruktorn även skulle kunna ta in en service av annan typ, så i och med att lägga på en kommentar så tar man bort alla tvivel huruvida den är tänkt att ta en parameter av annan typ.
+<hr>
+
+### Gemensamma kommentarer
+I mitt fortsatta försök att hålla duplicerade kommentarer som inte tillför något nytt kort, så har vissa metoder kommenterats i grupp på ett naturligt (?) vis. Ett exempel på detta:
+#### Från flashcard-repository.js
+
+<img src="./reflection-images/chapter4_comments/comments_extra.png" width="500px">
+
+Tanken är att det ska omedelbart bli uppenbart att de tre metoderna använder samma parametrar. Svårt att säga om jag lyckats, för vad som nu känns självklart för mig, som skrivit koden, behöver inte vara självklart för den som läser min kod. Men jag har gjort ett försök till att effektivisera kommenterandet, men finns säkerligen ytterligare förbättringspotential!
 
 ## Kapitel 5: Formattering (Formatting)
 Tre stora avsnitt som behandlas i boken gällande formattering är: Vertikala strukturer, horisontella begränsningar och grupperingar av segement inom koden.

@@ -2,6 +2,9 @@ import { FlashcardRepository } from '../repositories/flashcard-repository.js'
 import { WordWrapper } from '../wrapper/WordWrapper.js'
 
 export class FlashcardService {
+  /** 
+   * @type {FlashcardRepository} 
+   */
   #repository
   constructor (repository = new FlashcardRepository()) {
     this.#repository = repository
@@ -11,19 +14,29 @@ export class FlashcardService {
     return this.#repository.readData()
   }
 
+  /**
+   * @param {string} wordToSearch 
+   * @returns {object} the word and its info
+   */
   async searchWord (wordToSearch) {
     const word = new WordWrapper(wordToSearch)
     const wordInfo = await word.getWordInfo()
 
     return {
+      word: wordToSearch,
       translation: 'Fill the in word in your source language.',
       gapSentence: this.#createGapSentence(wordToSearch, wordInfo),
-      word: wordToSearch,
       pronunciation: wordInfo.pronunciation,
       sentence: wordInfo.examples,
     }
   }
 
+  /**
+   * 
+   * @param {string} word 
+   * @param {object} wordInfo 
+   * @returns {string}
+   */
   #createGapSentence (word, wordInfo) {
     const gap = '_'.repeat(word.length)
     const gapSentances = wordInfo.examples.replaceAll(word, gap)
@@ -41,6 +54,10 @@ export class FlashcardService {
     }
   }
 
+  /**
+   * @param {object} newCard 
+   * @returns {object} the card
+   */
   saveCard (newCard) {
     const card = {
       id: 0,
@@ -57,6 +74,9 @@ export class FlashcardService {
     return this.#repository.writeData(card)
   }
 
+  /**
+   * @param {string} id 
+   */
   deleteCard (id) {
     this.#repository.deleteCard(id)
   }
