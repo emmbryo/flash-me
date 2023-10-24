@@ -28,7 +28,7 @@ Boken kan sägas ha en någpt extrem inställning till funktioner. De ska var as
 <img src="./reflection-images/chapter3_functions/two_args.png">
 <img src="./reflection-images/chapter3_functions/one_arg.png">
 <img src="./reflection-images/chapter3_functions/three_args.png">
-Bortsett från antalet parametrar, så är dessa funktioner korta och lättöverskådliga samt innehåller abstraktioner som gör deras aktioner lättare att förstå. Det är inte alltid möjligt att skriva den, enligt boken, perfekta funktionen. Men måste man ge avkall på något i ena änden, så bör man jobba hårt med förbättringar i den andra, för att bygga en så enkel och tydlig funktion som är rimligt under förutsättningarna.
+Bortsett från antalet parametrar, så är dessa funktioner korta och lättöverskådliga samt innehåller abstraktioner som gör deras aktioner lättare att förstå. Det är inte alltid möjligt att skriva den, enligt boken, perfekta funktionen. Men måste man ge avkall på något i ena änden, så bör man jobba hårt med förbättringar i den andra, för att bygga en så enkel och tydlig funktion som är rimligt under förutsättningarna. (index döptes senare om till renderStartView, för att bättre förklara sin mening)
 <hr>
 
 ### Abstraktion
@@ -36,6 +36,7 @@ När applikationen var "klar" letade jag upp den längsta funktionen:
 #### I klassen flashcard-repository.js, metoden som skriver data till fil:
 <img src="./reflection-images/chapter3_functions/original_writeData.png">
 Jag upplevde den som rörig och ganska otydlig och valde att jobba mer med namngivningarna samt höja abstraktionsnivån genom att bryta ut funktionaliteten i mindre steg. Resultatet blev en mer lättläst funktion, MEN då fältet för #dataFile inte längre används i metoden, så minskade klassens cohesion. Klassen utökades med tre nya, privata metoer, vilket gjorde klassen större och därmed krångligare. Men då den aktuella metoden blev bra mycket enklare att förstå, får man väga vad som är viktigast i detta fallet. 
+
 <img src="./reflection-images/chapter3_functions/refactor_writeData.png">
 
 
